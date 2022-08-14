@@ -1,2 +1,6 @@
 <h1>{{appTitle}} 🚀</h1>
 <p>Welcome Ironhacker!</p>
+
+{{#if session.userId}}
+  <a href="/user/account/{{session.userId}}">Account</a>
+{{/if}}
