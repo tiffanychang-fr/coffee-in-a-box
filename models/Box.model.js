@@ -9,11 +9,11 @@ const boxSchema = new Schema({
     type: String,
     required: true,
   },
-  month: {
+  releaseMonth: {
     type: String,
     required: true,
   },
-  year: {
+  releaseYear: {
     type: String,
     required: true,
   },

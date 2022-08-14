@@ -15,11 +15,8 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  shippingAddress: {
-    type: String,
-  },
-  // To Do: User-Subscription relationship
-  // subscritionHistory: [
+  // To Do: user-order relationship
+  // orderHistory: [
   //   {
   //     type: mongoose.Types.ObjectId,
   //     ref: "subscription",

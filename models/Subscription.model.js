@@ -1,10 +1,6 @@
 const { Schema, model } = require("mongoose");
 
 const subscriptionSchema = new Schema({
-  username: {
-    type: String,
-    required: true,
-  },
   duration: {
     type: Number,
     required: true,
@@ -17,6 +13,7 @@ const subscriptionSchema = new Schema({
     type: Date,
     required: true,
   },
+  // To Do: user-order relationship
 });
 
 const Subscription = model("Subscription", subscriptionSchema);
