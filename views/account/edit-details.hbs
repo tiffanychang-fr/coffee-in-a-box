@@ -1,0 +1,26 @@
+<h1>Modify My Information</h1>
+
+<form method="post" action="/account/edit-details">
+  <label>Username
+    <input
+      type="text"
+      name="username"
+      placeholder="Username"
+      value="{{user.username}}"
+    />
+  </label>
+  <br />
+
+  <label>Email
+    <input
+      type="text"
+      name="email"
+      placeholder="Email"
+      value="{{user.email}}"
+    />
+  </label>
+  <br />
+
+  <button type="submit">Save</button>
+
+</form>
