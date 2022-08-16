@@ -103,4 +103,8 @@ accountRouter.post("/edit-details", async (req, res) => {
   });
 });
 
+accountRouter.get("/subscription", (req, res) => {
+  res.render("account/order-history");
+});
+
 module.exports = accountRouter;
