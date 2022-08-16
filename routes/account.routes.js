@@ -7,6 +7,20 @@ const {
 
 const UserModel = require("../models/User.model");
 
+// Fake Order Data
+let fromDate = new Date("2021-09-10").toISOString().split("T")[0];
+let toDate = new Date("2022-12-10").toISOString().split("T")[0];
+let fromDate2 = new Date("2022-01-10").toISOString().split("T")[0];
+let toDate2 = new Date("2022-06-10").toISOString().split("T")[0];
+let fromDate3 = new Date("2022-07-10").toISOString().split("T")[0];
+let toDate3 = new Date("2022-10-10").toISOString().split("T")[0];
+
+const fakeOrderData = [
+  { duration: 3, startDate: fromDate, endDate: toDate },
+  { duration: 6, startDate: fromDate2, endDate: toDate2 },
+  { duration: 3, startDate: fromDate3, endDate: toDate3 },
+];
+
 // Routes
 
 // Logged In View
@@ -104,7 +118,20 @@ accountRouter.post("/edit-details", async (req, res) => {
 });
 
 accountRouter.get("/subscription", (req, res) => {
-  res.render("account/order-history");
+  userId = req.session.userId;
+  // console.log(req.session);
+
+  UserModel.findById(userId)
+    .then((user) => {
+      if (!user) {
+        return res.redirect("/");
+      }
+      res.render("account/order-history", { user, fakeOrderData });
+    })
+    .catch((err) => {
+      console.log("err:", err);
+      res.status(500).redirect("/");
+    });
 });
 
 module.exports = accountRouter;
