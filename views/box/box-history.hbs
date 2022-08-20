@@ -1,0 +1,64 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Previous Boxes</title>
+  </head>
+  <body>
+
+    {{! Navbar }}
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Coffee In A Box</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">💌SUBSCRIPTION</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/box">🎁OUR PREVIOUS BOXES</a>
+            </li>
+            {{#if session.userId}}
+              <li class="nav-item">
+                <a class="nav-link" href="/account/dashboard">🎈MY ACCOUNT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/auth/logout">LOGOUT</a>
+              </li>
+
+            {{else}}
+              <li class="nav-item">
+                <a class="nav-link" href="/auth/signup">SIGNUP</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/auth/login">LOGIN</a>
+              </li>
+            {{/if}}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {{! Main Section}}
+    <h1>Here Is Our Previous Box Portfolio✨</h1>
+
+    <div class="container">
+      <div class="row justify-content-around">
+        {{#each fakeBoxData}}
+          <div class="col-md-4 mt-5">
+            <div class="card">
+              <img src="{{imageUrl}}" />
+              <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <div class="card-text">{{releaseMonth}}-{{releaseYear}}</div>
+                <a href="#">MORE DETAILS</a>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+
+      </div>
+    </div>
+  </body>
+</html>

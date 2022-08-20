@@ -25,6 +25,7 @@ const fakeOrderData = [
 
 // Logged In View
 accountRouter.get("/dashboard", (req, res) => {
+  session = req.session;
   userId = req.session.userId;
   // console.log(req.session);
 
@@ -34,7 +35,7 @@ accountRouter.get("/dashboard", (req, res) => {
         return res.redirect("/");
       }
 
-      res.render("account/dashboard", { user });
+      res.render("account/dashboard", { session, user });
     })
     .catch((err) => {
       console.log("err:", err);
@@ -44,6 +45,7 @@ accountRouter.get("/dashboard", (req, res) => {
 
 // User Account Information
 accountRouter.get("/information", (req, res) => {
+  session = req.session;
   userId = req.session.userId;
   // console.log(req.session);
 
@@ -53,7 +55,7 @@ accountRouter.get("/information", (req, res) => {
         return res.redirect("/");
       }
 
-      res.render("account/information", { user });
+      res.render("account/information", { session, user });
     })
     .catch((err) => {
       console.log("err:", err);
@@ -63,6 +65,7 @@ accountRouter.get("/information", (req, res) => {
 
 // Change user infos
 accountRouter.get("/edit-details", async (req, res) => {
+  session = req.session;
   userId = req.session.userId;
 
   UserModel.findById(userId)
@@ -71,7 +74,7 @@ accountRouter.get("/edit-details", async (req, res) => {
         return res.redirect("/");
       }
 
-      res.render("account/edit-details", { user });
+      res.render("account/edit-details", { session, user });
     })
     .catch((err) => {
       console.log("err:", err);
@@ -118,6 +121,7 @@ accountRouter.post("/edit-details", async (req, res) => {
 });
 
 accountRouter.get("/subscription", (req, res) => {
+  session = req.session;
   userId = req.session.userId;
   // console.log(req.session);
 
@@ -126,7 +130,7 @@ accountRouter.get("/subscription", (req, res) => {
       if (!user) {
         return res.redirect("/");
       }
-      res.render("account/order-history", { user, fakeOrderData });
+      res.render("account/order-history", { session, user, fakeOrderData });
     })
     .catch((err) => {
       console.log("err:", err);

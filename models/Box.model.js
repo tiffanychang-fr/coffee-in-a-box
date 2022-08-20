@@ -17,6 +17,9 @@ const boxSchema = new Schema({
     type: String,
     required: true,
   },
+  imageUrl: {
+    type: String,
+  },
 });
 
 const Box = model("Box", boxSchema);

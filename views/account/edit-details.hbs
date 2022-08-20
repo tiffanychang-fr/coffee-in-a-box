@@ -14,26 +14,33 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="/">💌Subscriptions</a>
+              <a class="nav-link" href="/">💌SUBSCRIPTION</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/account/dashboard">🎈My Account</a>
+              <a class="nav-link" href="/box">🎁OUR PREVIOUS BOXES</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/auth/logout">Logout</a>
-            </li>
-            {{! <li class="nav-item">
-              <a class="nav-link" href="/auth/signup">Signup</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/auth/login">Login</a>
-            </li> }}
+            {{#if session.userId}}
+              <li class="nav-item">
+                <a class="nav-link" href="/account/dashboard">🎈MY ACCOUNT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/auth/logout">LOGOUT</a>
+              </li>
+
+            {{else}}
+              <li class="nav-item">
+                <a class="nav-link" href="/auth/signup">SIGNUP</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/auth/login">LOGIN</a>
+              </li>
+            {{/if}}
           </ul>
         </div>
       </div>
     </nav>
 
-    {{! Main sector }}
+    {{! Main Section }}
     <h1>Modify My Information</h1>
 
     <form method="post" action="/account/edit-details">
