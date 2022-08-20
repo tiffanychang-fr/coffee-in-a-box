@@ -13,22 +13,6 @@ boxRouter.get("/", (req, res) => {
   // res.render("box/box-history", { session, fakeBoxData });
 });
 
-// Todo: Render Box detail page
-boxRouter.get("/:boxId", (req, res) => {
-  const session = req.session;
-  const { boxId } = req.params;
-  BoxModel.findById({ _id: boxId })
-    .then((selectedBox) => {
-      if (!selectedBox) {
-        return res.redirect("/box");
-      }
-      res.render("box/box-detail", { session, box: selectedBox });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
 // Todo: Create box with admin access
 
 // Create Box @admin
@@ -40,7 +24,7 @@ boxRouter.post("/create", (req, res) => {
   const { title, description, releaseMonth, releaseYear, imageUrl } = req.body;
 
   BoxModel.create({ title, description, releaseMonth, releaseYear, imageUrl })
-    .then(() => {
+    .then((response) => {
       res.redirect("/box");
     })
     .catch((err) => {
@@ -100,6 +84,23 @@ boxRouter.get("/delete/:boxId", (req, res) => {
       res.redirect("/box");
     })
     .catch((err) => console.log(err));
+});
+
+// Todo: Render Box detail page
+boxRouter.get("/:boxId", (req, res) => {
+  const session = req.session;
+  const { boxId } = req.params;
+  console.log(req.params);
+  BoxModel.findById({ _id: boxId })
+    .then((selectedBox) => {
+      if (!selectedBox) {
+        return res.redirect("/box");
+      }
+      res.render("box/box-detail", { session, box: selectedBox });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 module.exports = boxRouter;
