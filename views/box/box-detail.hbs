@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Previous Boxes</title>
+    <title>Box Detail</title>
   </head>
   <body>
 
@@ -41,25 +41,13 @@
     </nav>
 
     {{! Main Section}}
-    <h1>Here Is Our Previous Box Portfolio✨</h1>
+    <h1>{{box.title}}✨</h1>
+    <h5>{{box.releaseMonth}} {{box.releaseYear}}</h5>
+    <p>{{box.description}}</p>
+    <div>
+    <img src="../../{{box.imageUrl}}" width="750" height="500"/>
+    </div>
 
-    <div class="container">
-      <div class="row justify-content-around">
-        {{#each boxes}}
-          <div class="col-md-4 mt-5">
-            <div class="card">
-              <img src="{{imageUrl}}" />
-              <div class="card-body">
-                <h5 class="card-title">{{title}}</h5>
-                <div class="card-text">{{releaseMonth}}-{{releaseYear}}</div>
-                <a href="/box/{{_id}}">MORE DETAILS</a>
-                <br />
-                <a href="/box/update/{{_id}}">EDIT</a>
-                <a href="/box/delete/{{_id}}">| DELETE</a>
-              </div>
-            </div>
-          </div>
-        {{/each}}
 
       </div>
     </div>
