@@ -1,5 +1,7 @@
 const { Router } = require("express");
 const boxRouter = Router();
+const isLoggedIn = require("../middleware/isLoggedIn");
+const isAdmin = require("../middleware/isAdmin");
 const { isValidObjectId } = require("mongoose");
 
 const BoxModel = require("../models/Box.model");
@@ -16,11 +18,11 @@ boxRouter.get("/", (req, res) => {
 // Todo: Create box with admin access
 
 // Create Box @admin
-boxRouter.get("/create", (req, res) => {
+boxRouter.get("/create", isLoggedIn, isAdmin, (req, res) => {
   res.render("box/create");
 });
 
-boxRouter.post("/create", (req, res) => {
+boxRouter.post("/create", isLoggedIn, isAdmin, (req, res) => {
   const { title, description, releaseMonth, releaseYear, imageUrl } = req.body;
 
   BoxModel.create({ title, description, releaseMonth, releaseYear, imageUrl })
@@ -37,7 +39,7 @@ boxRouter.post("/create", (req, res) => {
 });
 
 // Update Box Infos @admin
-boxRouter.get("/update/:boxId", (req, res) => {
+boxRouter.get("/update/:boxId", isLoggedIn, isAdmin, (req, res) => {
   const { boxId } = req.params;
   const isValidBoxId = isValidObjectId(boxId);
 
@@ -58,7 +60,7 @@ boxRouter.get("/update/:boxId", (req, res) => {
     });
 });
 
-boxRouter.post("/update/:boxId", async (req, res) => {
+boxRouter.post("/update/:boxId", isLoggedIn, isAdmin, async (req, res) => {
   const { boxId } = req.params;
   const { title, description, releaseMonth, releaseYear, imageUrl } = req.body;
 
@@ -76,7 +78,7 @@ boxRouter.post("/update/:boxId", async (req, res) => {
 });
 
 // Delete A Box @admin
-boxRouter.get("/delete/:boxId", (req, res) => {
+boxRouter.get("/delete/:boxId", isLoggedIn, isAdmin, (req, res) => {
   const { boxId } = req.params;
 
   BoxModel.findByIdAndDelete({ _id: boxId })

@@ -27,7 +27,7 @@ const fakeOrderData = [
 accountRouter.get("/dashboard", (req, res) => {
   session = req.session;
   userId = req.session.userId;
-  // console.log(req.session);
+  console.log(req.session);
 
   UserModel.findById(userId)
     .then((user) => {
