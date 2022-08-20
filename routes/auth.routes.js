@@ -19,7 +19,7 @@ router.get("/signup", isLoggedOut, (req, res) => {
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, role } = req.body;
 
   if (!username) {
     return res.status(400).render("auth/signup", {
@@ -70,6 +70,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
           username,
           email,
           password: hashedPassword,
+          role,
         });
       })
       .then((user) => {
