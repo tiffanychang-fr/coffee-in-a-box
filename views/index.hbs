@@ -1,8 +1,57 @@
-<h1>{{appTitle}} 🚀</h1>
-<p>Welcome!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  {{! Navbar }}
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Coffee In A Box</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-{{#if session.userId}}
-  <a href="/account/dashboard">🎈My Account</a>
-{{/if}}
-</br>
-<a href="#">💌The Subscriptions</a>
+            {{#if session.userId}}
+            <li class="nav-item">
+              <a class="nav-link" href="/">💌Subscriptions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/account/dashboard">🎈My Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/logout">Logout</a>
+            </li>
+            {{else}}
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/signup">Signup</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/login">Login</a>
+            </li>
+            {{/if}}
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {{! Main sector }}
+    <h1>{{appTitle}} 🚀</h1>
+    <p>Welcome!</p>
+    {{#if session.userId}}
+    <a href="/account/dashboard">🎈My Account</a>
+    </br>
+    <a href="#">💌The Subscriptions</a>
+   {{/if}}
+
+    </body>
+</html>
+
+
+
+
+

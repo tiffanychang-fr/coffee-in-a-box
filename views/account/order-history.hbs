@@ -1,24 +1,62 @@
-<h1>My Order History🎁</h1>
-<p>I will run a for loop to list out all the orders here 😉</p>
-<br />
-<div class="container">
-  <div class="row justify-content-around">
-    {{#each fakeOrderData}}
-      <div class="col-md-4">
-        <div class="card my-3">
-          <img src="/images/price-tag.jpg" alt="price-tag" />
-          <div class="card-body">
-            <h5 class="card-title">Monthly subscription 10.90 €</h5>
-            <p class="card-text">Ordered on
-              {{startDate}}. Subscription for
-              {{duration}}
-              months.</p>
-            <a href="#" class="btn btn-primary">More Details</a>
-          </div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    {{! Navbar }}
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Coffee In A Box</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">💌Subscriptions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/account/dashboard">🎈My Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/logout">Logout</a>
+            </li>
+            {{! <li class="nav-item">
+              <a class="nav-link" href="/auth/signup">Signup</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/login">Login</a>
+            </li> }}
+          </ul>
         </div>
       </div>
-    {{/each}}
-  </div>
-</div>
+    </nav>
 
-<a href="/account/dashboard">🔙Go Back</a>
+    {{! Main sector }}
+    <h1>My Order History🎁</h1>
+    <p>I will run a for loop to list out all the orders here 😉</p>
+    <br />
+    <div class="container">
+      <div class="row justify-content-around">
+        {{#each fakeOrderData}}
+          <div class="col-md-4">
+            <div class="card my-3">
+              <img src="/images/price-tag.jpg" alt="price-tag" />
+              <div class="card-body">
+                <h5 class="card-title">Monthly subscription 10.90 €</h5>
+                <p class="card-text">Ordered on
+                  {{startDate}}. Subscription for
+                  {{duration}}
+                  months.</p>
+                <a href="#" class="btn btn-primary">More Details</a>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <a href="/account/dashboard">🔙Go Back</a>
+  </body>
+</html>

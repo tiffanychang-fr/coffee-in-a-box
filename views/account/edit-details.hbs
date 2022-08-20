@@ -1,26 +1,64 @@
-<h1>Modify My Information</h1>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
 
-<form method="post" action="/account/edit-details">
-  <label>Username
-    <input
-      type="text"
-      name="username"
-      placeholder="Username"
-      value="{{user.username}}"
-    />
-  </label>
-  <br />
+    {{! Navbar }}
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Coffee In A Box</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">💌Subscriptions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/account/dashboard">🎈My Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/logout">Logout</a>
+            </li>
+            {{! <li class="nav-item">
+              <a class="nav-link" href="/auth/signup">Signup</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/login">Login</a>
+            </li> }}
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-  <label>Email
-    <input
-      type="text"
-      name="email"
-      placeholder="Email"
-      value="{{user.email}}"
-    />
-  </label>
-  <br />
+    {{! Main sector }}
+    <h1>Modify My Information</h1>
 
-  <button type="submit">Save</button>
+    <form method="post" action="/account/edit-details">
+      <label>Username
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          value="{{user.username}}"
+        />
+      </label>
+      <br />
 
-</form>
+      <label>Email
+        <input
+          type="text"
+          name="email"
+          placeholder="Email"
+          value="{{user.email}}"
+        />
+      </label>
+      <br />
+
+      <button type="submit">Save</button>
+
+    </form>
+  </body>
+</html>
