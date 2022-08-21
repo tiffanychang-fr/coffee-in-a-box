@@ -42,6 +42,10 @@
 
     {{! Main Section}}
     <h1>Here Is Our Previous Box Portfolio✨</h1>
+    {{#if session.isAdmin}}
+    <br/>
+    <a href="/box/create">➕CREATE A NEW BOX</a>
+    {{/if}}
 
     <div class="container">
       <div class="row justify-content-around">
@@ -53,9 +57,12 @@
                 <h5 class="card-title">{{title}}</h5>
                 <div class="card-text">{{releaseMonth}}-{{releaseYear}}</div>
                 <a href="/box/{{_id}}">MORE DETAILS</a>
-                <br />
-                <a href="/box/update/{{_id}}">EDIT</a>
-                <a href="/box/delete/{{_id}}">| DELETE</a>
+                {{#if ../session.isAdmin}}
+                  <br />
+                  <a href="/box/update/{{_id}}">EDIT</a>
+                  <a href="/box/delete/{{_id}}">| DELETE</a>
+                {{else}}
+                {{/if}}
               </div>
             </div>
           </div>

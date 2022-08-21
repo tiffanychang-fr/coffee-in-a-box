@@ -9,6 +9,10 @@ const BoxModel = require("../models/Box.model");
 // Routers
 boxRouter.get("/", (req, res) => {
   const session = req.session;
+  // To render the edit and delete button in views when the logged in user is admin
+  if (req.session.user && req.session.user.role === "admin") {
+    req.session.isAdmin = true;
+  }
   BoxModel.find({}).then((boxes) => {
     res.render("box/box-history", { session, boxes });
   });
