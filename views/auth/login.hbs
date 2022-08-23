@@ -1,20 +1,79 @@
-<form action="/auth/login" method="POST">
-  <label>
-    Username
-    <input type="text" name="username" />
-  </label>
-  <label>
-    Email
-    <input type="email" name="email" />
-  </label>
-  <label>
-    Password
-    <input type="password" name="password" />
-  </label>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.101.0" />
+    <title>Sign In | Coffee In A Box</title>
 
-  <button type="submit">Submit</button>
-</form>
+    <link rel="stylesheet" href="/stylesheets/signin.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
 
-{{#if errorMessage}}
-  {{errorMessage}}
-{{/if}}
+  </head>
+  <body class="text-center">
+
+    <main class="form-signin w-100 m-auto">
+      <form action="/auth/login" method="POST">
+        <img
+          class="mb-4"
+          src="/images/coffee-logo.png"
+          alt=""
+          width="75"
+          height="75"
+        />
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+        <div class="form-floating">
+          <input
+            type="text"
+            name="username"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Username"
+          />
+        </div>
+        <div class="form-floating">
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Email address"
+          />
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="Password"
+          />
+        </div>
+
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me" />
+            Remember me
+          </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign In</button>
+        <p class="mt-5 mb-3 text-muted">&copy; Coffee In A Box 2022</p>
+      </form>
+    </main>
+
+    {{#if errorMessage}}
+      {{errorMessage}}
+    {{/if}}
+
+  </body>
+</html>
