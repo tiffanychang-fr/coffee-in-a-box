@@ -1,0 +1,89 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My CART</title>
+    <link rel="stylesheet" href="/stylesheets/cart.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+
+    <div class="wrap cf">
+      <h1 class="projTitle">MY Cart <span>- Recap</span></h1>
+      <div class="cart">
+        {{!-- <ul class="tableHead">
+          <li class="prodHeader">Product</li>
+          <li>Quantity</li>
+          <li>Total</li>
+          <li>Remove</li>
+        </ul> --}}
+
+          <li class="items even">
+            <div class="infoWrap">
+              <div class="cartSection">
+                <img
+                  src="/images/price-tag.jpg"
+                  alt=""
+                  class="itemImg"
+                />
+                <p class="itemNumber">#QUE-007544-002</p>
+                <h3>Monthly subscription - 11.90 €</h3>
+
+                <p>
+                  <input type="text" class="qty" placeholder="3" />
+                  Month(s) x €11.90</p>
+
+                {{!-- <p class="stockStatus"> IN STOCK</p> --}}
+              </div>
+
+              <div class="prodTotal cartSection">
+                <p>€35.70</p>
+              </div>
+              <div class="cartSection removeWrap">
+                <a href="#" class="remove">x</a>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="promoCode"><label for="promo">Have A Promo Code?</label><input
+          type="text"
+          name="promo"
+          placholder="Enter Code"
+        />
+        <a href="#" class="btn"><b>></b></a></div>
+
+      <div class="subtotal cf">
+        <ul>
+          <li class="totalRow"><span class="label">Subtotal</span><span
+              class="value"
+            >€35.70</span></li>
+
+          <li class="totalRow"><span class="label">Shipping</span><span
+              class="value"
+            >€0.00</span></li>
+
+          {{!-- <li class="totalRow"><span class="label">Tax</span><span
+              class="value"
+            >$4.00</span></li> --}}
+          <li class="totalRow final"><span class="label">Total</span><span
+              class="value"
+            >€35.70</span></li>
+          <li class="totalRow"><a
+              href="#"
+              class="btn continue"
+            >Checkout</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </body>
+</html>

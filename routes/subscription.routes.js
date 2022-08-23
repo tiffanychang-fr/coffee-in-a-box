@@ -7,4 +7,8 @@ subscriptionRouter.get("/presentation", (req, res) => {
   res.render("subscription/presentation", { session });
 });
 
+subscriptionRouter.get("/checkout/recap", (req, res) => {
+  res.render("subscription/recap");
+});
+
 module.exports = subscriptionRouter;
