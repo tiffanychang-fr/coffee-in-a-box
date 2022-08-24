@@ -7,6 +7,7 @@ subscriptionRouter.get("/presentation", (req, res) => {
   res.render("subscription/presentation", { session });
 });
 
+// Render checkout page
 subscriptionRouter.get("/checkout/recap", (req, res) => {
   res.render("subscription/recap");
 });

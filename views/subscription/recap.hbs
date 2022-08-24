@@ -26,7 +26,7 @@
 
           <li class="items even">
             <div class="infoWrap">
-              <div class="cartSection">
+              <div class="cartSection prodTitle">
                 <img
                   src="/images/price-tag.jpg"
                   alt=""
@@ -57,25 +57,25 @@
       <div class="promoCode"><label for="promo">Have A Promo Code?</label><input
           type="text"
           name="promo"
-          placholder="Enter Code"
+          placeholder="Enter Code"
         />
         <a href="#" class="btn"><b>></b></a></div>
 
       <div class="subtotal cf">
         <ul>
           <li class="totalRow"><span class="label">Subtotal</span><span
-              class="value"
+              class="value subtotal-value"
             >€35.70</span></li>
 
           <li class="totalRow"><span class="label">Shipping</span><span
-              class="value"
+              class="value shipping-value"
             >€0.00</span></li>
 
           {{!-- <li class="totalRow"><span class="label">Tax</span><span
               class="value"
             >$4.00</span></li> --}}
           <li class="totalRow final"><span class="label">Total</span><span
-              class="value"
+              class="value total-value"
             >€35.70</span></li>
           <li class="totalRow"><a
               href="#"
@@ -85,5 +85,6 @@
       </div>
     </div>
 
+    <script src="/js/cart.js"></script>
   </body>
 </html>
