@@ -45,4 +45,4 @@ function calculateTotal(e) {
 const monthQtyInput = document.querySelector(".qty");
 monthQtyInput.addEventListener("input", (e) => calculateTotal(e));
 
-checkProductType();
+// checkProductType();
