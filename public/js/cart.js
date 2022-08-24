@@ -1,35 +1,60 @@
-// Show Monthly or Annual Price in Checkout Page
-// const prodTypeEl = document.querySelector(".prodTitle h3");
-// let productType = sessionStorage.getItem("productType");
+// DOM of Recap.hbs
+// Get products details elements
+const monthQtyInput = document.querySelector(".qty");
+const prodTypeEl = document.querySelector(".prodTitle h3");
+let productType = sessionStorage.getItem("productType");
+const calculTextEl = document.querySelector(".calculText");
+const prodTotalEl = document.querySelector(".prodTotal p");
+// Get subtotal, shipping and total elements
+const subTotalEl = document.querySelector(".subtotal-value");
+const shippingEl = document.querySelector(".shipping-value");
+const totalEl = document.querySelector(".total-value");
 
-// function checkProductType() {
-//   console.log(productType);
-//   if (productType === "annual") {
-//     showAnnualPrice();
-//   } else {
-//     showMonthlyPrice();
-//   }
-// }
+// Checkout - Show Monthly Price
+function showMonthlyPrice() {
+  const monthlyProd = "Monthly subscription - 11.90 €";
+  prodTypeEl.innerText = `${monthlyProd}`;
 
-// function showMonthlyPrice() {
-//   let monthlyProd = "Monthly subscription - 11.90 €";
-//   prodTypeEl.innerText = `${monthlyProd}`;
-// }
+  const monthlyCalculText = "Month(s) x €11.90";
+  calculTextEl.innerHTML = `${monthlyCalculText}`;
+}
 
-// function showAnnualPrice() {
-//   let annualProd = "Annual subscription - 122.90 €";
-//   prodTypeEl.innerText = `${annualProd}`;
-// }
+// Checkout - Show Annual Price
+function showAnnualPrice() {
+  const annualProd = "Annual subscription - 122.90 €";
+  prodTypeEl.innerText = `${annualProd}`;
+
+  const annualCalculText = "Year(s) x €122.90";
+  calculTextEl.innerHTML = `${annualCalculText}`;
+}
+
+// Check if user clicked subscribe monthly or annual subscription
+function checkProductType() {
+  console.log(productType);
+  if (productType === "annual") {
+    monthQtyInput.placeholder = "1";
+    prodTotalEl.innerText = "€122.90";
+    subTotalEl.innerText = "€122.90";
+    shippingEl.innerText = "€0.00";
+    totalEl.innerText = "€122.90";
+    showAnnualPrice();
+  } else {
+    monthQtyInput.placeholder = "3";
+    prodTotalEl.innerText = "€35.70";
+    subTotalEl.innerText = "€35.70";
+    shippingEl.innerText = "€0.00";
+    totalEl.innerText = "€35.70";
+    showMonthlyPrice();
+  }
+}
 
 // Calculate checkout total amount
 function calculateTotal(e) {
   const monthQty = e.target.value;
-  const prodTotalEl = document.querySelector(".prodTotal p");
-  const subTotalEl = document.querySelector(".subtotal-value");
-  const shippingEl = document.querySelector(".shipping-value");
-  const totalEl = document.querySelector(".total-value");
 
-  const price = 11.9;
+  let price;
+  productType === "annual" ? (price = 122.9) : (price = 11.9);
+
   const shipping = 0;
 
   let prodTotal = (price * monthQty).toFixed(2);
@@ -41,8 +66,7 @@ function calculateTotal(e) {
   ).toFixed(2)}`;
 }
 
-// Shopping Cart
-const monthQtyInput = document.querySelector(".qty");
+// Shopping Cart Events
 monthQtyInput.addEventListener("input", (e) => calculateTotal(e));
 
-// checkProductType();
+checkProductType();
