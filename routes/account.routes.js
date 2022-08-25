@@ -6,20 +6,36 @@ const {
 } = require("mongoose");
 
 const UserModel = require("../models/User.model");
+const SubscriptionModel = require("../models/Subscription.model");
 
 // Fake Order Data
-let fromDate = new Date("2021-09-10").toISOString().split("T")[0];
-let toDate = new Date("2022-12-10").toISOString().split("T")[0];
+let fromDate = new Date("2021-01-10").toISOString().split("T")[0];
+let toDate = new Date("2021-12-10").toISOString().split("T")[0];
 let fromDate2 = new Date("2022-01-10").toISOString().split("T")[0];
 let toDate2 = new Date("2022-06-10").toISOString().split("T")[0];
 let fromDate3 = new Date("2022-07-10").toISOString().split("T")[0];
 let toDate3 = new Date("2022-10-10").toISOString().split("T")[0];
 
-const fakeOrderData = [
-  { duration: 3, startDate: fromDate, endDate: toDate },
-  { duration: 6, startDate: fromDate2, endDate: toDate2 },
-  { duration: 3, startDate: fromDate3, endDate: toDate3 },
-];
+// const fakeOrderData = [
+//   {
+//     productType: "Annual subscription 122.90 €",
+//     duration: 12,
+//     startDate: fromDate,
+//     endDate: toDate,
+//   },
+//   {
+//     productType: "Monthly subscription 11.90 €",
+//     duration: 6,
+//     startDate: fromDate2,
+//     endDate: toDate2,
+//   },
+//   {
+//     productType: "Month subscription 11.90 €",
+//     duration: 3,
+//     startDate: fromDate3,
+//     endDate: toDate3,
+//   },
+// ];
 
 // Routes
 
@@ -27,7 +43,7 @@ const fakeOrderData = [
 accountRouter.get("/dashboard", (req, res) => {
   session = req.session;
   userId = req.session.userId;
-  console.log(req.session);
+  // console.log(req.session);
 
   UserModel.findById(userId)
     .then((user) => {
@@ -130,7 +146,15 @@ accountRouter.get("/subscription", (req, res) => {
       if (!user) {
         return res.redirect("/");
       }
-      res.render("account/order-history", { session, user, fakeOrderData });
+      // Look into OrderDB to fetch the order data of the logged in user
+      SubscriptionModel.find({ userId: req.session.userId })
+        .then((foundOrders) => {
+          res.render("account/order-history", { session, user, foundOrders });
+        })
+        .catch((err) => {
+          console.log("err:", err);
+          res.status(500).redirect("/");
+        });
     })
     .catch((err) => {
       console.log("err:", err);

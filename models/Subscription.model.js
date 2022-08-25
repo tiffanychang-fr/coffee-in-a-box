@@ -2,6 +2,10 @@ const { Schema, model } = require("mongoose");
 
 const subscriptionSchema = new Schema(
   {
+    productType: {
+      type: String,
+      required: true,
+    },
     duration: {
       type: Number,
       required: true,
@@ -13,6 +17,9 @@ const subscriptionSchema = new Schema(
     endDate: {
       type: Date,
       required: true,
+    },
+    userId: {
+      type: Schema.Types.ObjectId,
     },
     // To Do: user-order relationship
   },

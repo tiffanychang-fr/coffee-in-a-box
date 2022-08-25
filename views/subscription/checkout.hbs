@@ -77,13 +77,17 @@
               class="value total-value"
             >€35.70</span></li>
           <li class="totalRow"><a
-              href="#"
+              href="/subscription/confirmation"
               class="btn continue"
             >Checkout</a></li>
         </ul>
       </div>
     </div>
 
+    {{#if errorMessage}}
+      {{errorMessage}}
+    {{/if}}
+    
     <script src="/js/cart.js"></script>
   </body>
 </html>

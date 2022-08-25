@@ -46,12 +46,12 @@
     <br />
     <div class="container">
       <div class="row justify-content-around">
-        {{#each fakeOrderData}}
+        {{#each foundOrders}}
           <div class="col-md-4">
             <div class="card my-3">
               <img src="/images/price-tag.jpg" alt="price-tag" />
               <div class="card-body">
-                <h5 class="card-title">Monthly subscription 10.90 €</h5>
+                <h5 class="card-title">{{productType}}</h5>
                 <p class="card-text">Ordered on
                   {{startDate}}. Subscription for
                   {{duration}}
