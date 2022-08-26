@@ -1,6 +1,6 @@
 // DOM of Recap.hbs
 // Get products details elements
-const monthQtyInput = document.querySelector(".qty");
+const durationInput = document.querySelector(".qty");
 const prodTypeEl = document.querySelector(".prodTitle h3");
 let productType = sessionStorage.getItem("productType");
 const calculTextEl = document.querySelector(".calculText");
@@ -30,16 +30,16 @@ function showAnnualPrice() {
 
 // Check if user clicked subscribe monthly or annual subscription
 function checkProductType() {
-  console.log(productType);
+  // console.log(productType);
   if (productType === "annual") {
-    monthQtyInput.placeholder = "1";
+    durationInput.placeholder = "1";
     prodTotalEl.innerText = "€122.90";
     subTotalEl.innerText = "€122.90";
     shippingEl.innerText = "€0.00";
     totalEl.innerText = "€122.90";
     showAnnualPrice();
   } else {
-    monthQtyInput.placeholder = "3";
+    durationInput.placeholder = "3";
     prodTotalEl.innerText = "€35.70";
     subTotalEl.innerText = "€35.70";
     shippingEl.innerText = "€0.00";
@@ -50,14 +50,17 @@ function checkProductType() {
 
 // Calculate checkout total amount
 function calculateTotal(e) {
-  const monthQty = e.target.value;
+  const durationInput = e.target.value;
+  // productType === "annual"
+  //   ? sessionStorage.setItem("duration", durationInput * 12)
+  //   : sessionStorage.setItem("duration", durationInput);
 
   let price;
   productType === "annual" ? (price = 122.9) : (price = 11.9);
 
   const shipping = 0;
 
-  let prodTotal = (price * monthQty).toFixed(2);
+  let prodTotal = (price * durationInput).toFixed(2);
   prodTotalEl.innerText = `€${prodTotal}`;
   subTotalEl.innerText = `€${prodTotal}`;
   shippingEl.innerText = `€${shipping.toFixed(2)}`;
@@ -67,6 +70,6 @@ function calculateTotal(e) {
 }
 
 // Shopping Cart Events
-monthQtyInput.addEventListener("input", (e) => calculateTotal(e));
+durationInput.addEventListener("input", (e) => calculateTotal(e));
 
 checkProductType();

@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const subscriptionRouter = Router();
+const { addMonths, getMonth, addDays, format } = require("date-fns");
 
 const SubscriptionModel = require("../models/Subscription.model");
 
@@ -20,15 +21,23 @@ subscriptionRouter.get("/checkout", (req, res) => {
 //// If order fails, render an error message on top.
 //// If order succeeds, create an order, and redirect to account order history.
 
-subscriptionRouter.get("/confirmation", isLoggedIn, (req, res) => {
+subscriptionRouter.post("/confirmation", isLoggedIn, (req, res) => {
   userId = req.session.userId;
-  // Create an order
+  const { duration } = req.body;
+
+  //// Use date-fns
+  const fromDate = format(new Date(), "yyyy-MM-dd");
+  const toDate = format(addMonths(new Date(), duration), "yyyy-MM-dd");
+
   //// Hard-coded data to test on creating an order
-  let fromDate = new Date("2021-01-10").toISOString().split("T")[0];
-  let toDate = new Date("2021-12-10").toISOString().split("T")[0];
+  // let fromDate = new Date("2021-01-10").toISOString().split("T")[0];
+  // let toDate = new Date("2021-12-10").toISOString().split("T")[0];
+  // const duration = 3;
+
+  // Create an order
   SubscriptionModel.create({
     productType: "Monthly subscription 11.90 €",
-    duration: 3,
+    duration: duration,
     startDate: fromDate,
     endDate: toDate,
     userId,
