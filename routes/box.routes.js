@@ -56,6 +56,7 @@ boxRouter.get("/update/:boxId", isLoggedIn, isAdmin, (req, res) => {
       if (!selectedBox) {
         return res.redirect("/box");
       }
+      console.log(selectedBox);
       res.render("box/update", { box: selectedBox });
     })
     .catch((err) => {
