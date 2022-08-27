@@ -42,7 +42,6 @@ router.post("/signup", isLoggedOut, (req, res) => {
   //   ! This use case is using a regular expression to control for special characters and min length
   /*
   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
-
   if (!regex.test(password)) {
     return res.status(400).render("signup", {
       errorMessage:

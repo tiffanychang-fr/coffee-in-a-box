@@ -2,6 +2,7 @@
 // Get products details elements
 const durationInput = document.querySelector(".qty");
 const prodTypeEl = document.querySelector(".prodTitle h3");
+const prodTypeInputEl = document.querySelector(".prodTitleInput");
 let productType = sessionStorage.getItem("productType");
 const calculTextEl = document.querySelector(".calculText");
 const prodTotalEl = document.querySelector(".prodTotal p");
@@ -14,6 +15,7 @@ const totalEl = document.querySelector(".total-value");
 function showMonthlyPrice() {
   const monthlyProd = "Monthly subscription - 11.90 €";
   prodTypeEl.innerText = `${monthlyProd}`;
+  prodTypeInputEl.value = `${monthlyProd}`;
 
   const monthlyCalculText = "Month(s) x €11.90";
   calculTextEl.innerHTML = `${monthlyCalculText}`;
@@ -23,6 +25,7 @@ function showMonthlyPrice() {
 function showAnnualPrice() {
   const annualProd = "Annual subscription - 122.90 €";
   prodTypeEl.innerText = `${annualProd}`;
+  prodTypeInputEl.value = `${annualProd}`;
 
   const annualCalculText = "Year(s) x €122.90";
   calculTextEl.innerHTML = `${annualCalculText}`;

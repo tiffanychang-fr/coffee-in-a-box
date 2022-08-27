@@ -23,7 +23,14 @@ subscriptionRouter.get("/checkout", (req, res) => {
 
 subscriptionRouter.post("/confirmation", isLoggedIn, (req, res) => {
   userId = req.session.userId;
-  const { duration } = req.body;
+  const { duration, productType } = req.body;
+
+  let revisedDuration;
+  if (productType == "Annual subscription - 122.90 €") {
+    revisedDuration = duration * 12;
+  } else {
+    revisedDuration = duration;
+  }
 
   //// Use date-fns
   const fromDate = format(new Date(), "yyyy-MM-dd");
@@ -36,8 +43,8 @@ subscriptionRouter.post("/confirmation", isLoggedIn, (req, res) => {
 
   // Create an order
   SubscriptionModel.create({
-    productType: "Monthly subscription 11.90 €",
-    duration: duration,
+    productType: productType,
+    duration: revisedDuration,
     startDate: fromDate,
     endDate: toDate,
     userId,

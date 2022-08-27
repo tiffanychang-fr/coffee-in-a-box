@@ -13,7 +13,8 @@
     />
   </head>
   <body>
-                <form action="/subscription/confirmation" method="post">
+    
+    <form action="/subscription/confirmation" method="post">
 
     <div class="wrap cf">
       <h1 class="projTitle">MY Cart <span>- Recap</span></h1>
@@ -34,10 +35,10 @@
                   class="itemImg"
                 />
                 <p class="itemNumber">#QUE-007544-002</p>
-                <h3>Monthly subscription - 11.90 €</h3>
-
-                  <input type="text" class="qty" name="duration" placeholder="3" />
                 
+                <h3>Monthly subscription - 11.90 €</h3>
+                <input type="hidden" name="productType" class="prodTitleInput" value="Monthly subscription - 11.90 €">
+                <input type="text" class="qty" name="duration" placeholder="3"  />
                 <p class="calculText">Month(s) x €11.90</p>
 
                 {{!-- <p class="stockStatus"> IN STOCK</p> --}}
