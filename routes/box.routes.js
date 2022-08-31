@@ -78,22 +78,37 @@ boxRouter.get("/update/:boxId", isLoggedIn, isAdmin, (req, res) => {
     });
 });
 
-boxRouter.post("/update/:boxId", isLoggedIn, isAdmin, async (req, res) => {
-  const { boxId } = req.params;
-  const { title, description, releaseMonth, releaseYear, imageUrl } = req.body;
+boxRouter.post(
+  "/update/:boxId",
+  isLoggedIn,
+  isAdmin,
+  fileUploader.single("imageUrl"),
+  async (req, res) => {
+    const { boxId } = req.params;
+    const { title, description, releaseMonth, releaseYear, existingImage } =
+      req.body;
 
-  await BoxModel.findByIdAndUpdate(
-    { _id: boxId },
-    {
-      title,
-      description,
-      releaseMonth,
-      releaseYear,
-      imageUrl,
+    let imageUrl;
+    if (req.file) {
+      imageUrl = req.file.path;
+    } else {
+      imageUrl = existingImage;
     }
-  );
-  res.redirect("/box");
-});
+
+    await BoxModel.findByIdAndUpdate(
+      { _id: boxId },
+      {
+        title,
+        description,
+        releaseMonth,
+        releaseYear,
+        imageUrl,
+      },
+      { new: true }
+    );
+    res.redirect("/box");
+  }
+);
 
 // Delete A Box @admin
 boxRouter.get("/delete/:boxId", isLoggedIn, isAdmin, (req, res) => {

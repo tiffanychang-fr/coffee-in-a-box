@@ -31,7 +31,11 @@
     </nav>
 
     {{! Main Section }}
-    <form action="/box/update/{{box.id}}" method="POST">
+    <form
+      action="/box/update/{{box.id}}"
+      method="POST"
+      enctype="multipart/form-data"
+    >
       <label>
         Title
         <input type="text" name="title" value="{{box.title}}" />
@@ -50,7 +54,13 @@
       </label>
       <label>
         Image URL
-        <input type="text" name="imageUrl" value="{{box.imageUrl}}" />
+        <input type="file" name="imageUrl" value="{{box.imageUrl}}" />
+        <input
+          type="text"
+          name="existingImage"
+          hidden
+          value="{{box.imageUrl}}"
+        />
       </label>
 
       <button type="submit">Save</button>
