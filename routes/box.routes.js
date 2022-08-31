@@ -5,6 +5,7 @@ const isAdmin = require("../middleware/isAdmin");
 const { isValidObjectId } = require("mongoose");
 
 const BoxModel = require("../models/Box.model");
+const fileUploader = require("../config/cloudinary.config");
 
 // Routers
 boxRouter.get("/", (req, res) => {
@@ -26,21 +27,33 @@ boxRouter.get("/create", isLoggedIn, isAdmin, (req, res) => {
   res.render("box/create");
 });
 
-boxRouter.post("/create", isLoggedIn, isAdmin, (req, res) => {
-  const { title, description, releaseMonth, releaseYear, imageUrl } = req.body;
+boxRouter.post(
+  "/create",
+  isLoggedIn,
+  isAdmin,
+  fileUploader.single("imageUrl"),
+  (req, res) => {
+    const { title, description, releaseMonth, releaseYear } = req.body;
 
-  BoxModel.create({ title, description, releaseMonth, releaseYear, imageUrl })
-    .then((response) => {
-      res.redirect("/box");
+    BoxModel.create({
+      title,
+      description,
+      releaseMonth,
+      releaseYear,
+      imageUrl: req.file.path,
     })
-    .catch((err) => {
-      console.log("error failing creating a box", err);
-      res.status(500).render("box/create", {
-        errorMessage: "Somethig went wrong. Please create the box again.",
-        ...req.body,
+      .then((response) => {
+        res.redirect("/box");
+      })
+      .catch((err) => {
+        console.log("error failing creating a box", err);
+        res.status(500).render("box/create", {
+          errorMessage: "Somethig went wrong. Please create the box again.",
+          ...req.body,
+        });
       });
-    });
-});
+  }
+);
 
 // Update Box Infos @admin
 boxRouter.get("/update/:boxId", isLoggedIn, isAdmin, (req, res) => {
