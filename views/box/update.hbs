@@ -31,40 +31,42 @@
     </nav>
 
     {{! Main Section }}
-    <form
-      action="/box/update/{{box.id}}"
-      method="POST"
-      enctype="multipart/form-data"
-    >
-      <label>
-        Title
-        <input type="text" name="title" value="{{box.title}}" />
-      </label>
-      <label>
-        Description
-        <input type="text" name="description" value="{{box.description}}" />
-      </label>
-      <label>
-        Release Month
-        <input type="text" name="releaseMonth" value="{{box.releaseMonth}}" />
-      </label>
-      <label>
-        Release Year
-        <input type="text" name="releaseYear" value="{{box.releaseYear}}" />
-      </label>
-      <label>
-        Image URL
-        <input type="file" name="imageUrl" value="{{box.imageUrl}}" />
-        <input
-          type="text"
-          name="existingImage"
-          hidden
-          value="{{box.imageUrl}}"
-        />
-      </label>
+    <div class="container">
+      <form
+        action="/box/update/{{box.id}}"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <label>
+          Title
+          <input type="text" name="title" value="{{box.title}}" />
+        </label>
+        <label>
+          Description
+          <input type="text" name="description" value="{{box.description}}" />
+        </label>
+        <label>
+          Release Month
+          <input type="text" name="releaseMonth" value="{{box.releaseMonth}}" />
+        </label>
+        <label>
+          Release Year
+          <input type="text" name="releaseYear" value="{{box.releaseYear}}" />
+        </label>
+        <label>
+          Image URL
+          <input type="file" name="imageUrl" value="{{box.imageUrl}}" />
+          <input
+            type="text"
+            name="existingImage"
+            hidden
+            value="{{box.imageUrl}}"
+          />
+        </label>
 
-      <button type="submit">Save</button>
-    </form>
-
+        <button type="submit">Save</button>
+      </form>
+    </div>
+    <footer>&copy; Coffee In A Box | 2022</footer>
   </body>
 </html>

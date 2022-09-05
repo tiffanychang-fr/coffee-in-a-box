@@ -41,13 +41,14 @@
     </nav>
 
     {{! Main Section}}
-    <h1>Here Is Our Previous Box Portfolio✨</h1>
-    {{#if session.isAdmin}}
-    <br/>
-    <a href="/box/create">➕CREATE A NEW BOX</a>
-    {{/if}}
 
     <div class="container">
+      <h1>Here Is Our Previous Box Portfolio✨</h1>
+      {{#if session.isAdmin}}
+      <br/>
+      <a href="/box/create">➕CREATE A NEW BOX</a>
+      {{/if}}
+
       <div class="row justify-content-around">
         {{#each boxes}}
           <div class="col-md-4 mt-5">
@@ -70,5 +71,6 @@
 
       </div>
     </div>
+    <footer>&copy; Coffee In A Box | 2022</footer>
   </body>
 </html>

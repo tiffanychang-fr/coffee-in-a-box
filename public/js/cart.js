@@ -11,43 +11,60 @@ const subTotalEl = document.querySelector(".subtotal-value");
 const shippingEl = document.querySelector(".shipping-value");
 const totalEl = document.querySelector(".total-value");
 
-// Checkout - Show Monthly Price
-function showMonthlyPrice() {
-  const monthlyProd = "Monthly subscription - 11.90 €";
-  prodTypeEl.innerText = `${monthlyProd}`;
-  prodTypeInputEl.value = `${monthlyProd}`;
+// Checkout - Show Discovery Offer
+function showDiscoveryPrice() {
+  const discoveryProd = "Discovery forfait";
+  prodTypeEl.innerText = `${discoveryProd}`;
+  prodTypeInputEl.value = `${discoveryProd}`;
 
-  const monthlyCalculText = "Month(s) x €11.90";
+  const monthlyCalculText = "Month(s) x €15.90";
   calculTextEl.innerHTML = `${monthlyCalculText}`;
 }
 
-// Checkout - Show Annual Price
-function showAnnualPrice() {
-  const annualProd = "Annual subscription - 122.90 €";
+// Checkout - Show Experience Offer
+function showExperiencePrice() {
+  const quarterlyProd = "Experience forfait";
+  prodTypeEl.innerText = `${quarterlyProd}`;
+  prodTypeInputEl.value = `${quarterlyProd}`;
+
+  const quarterlyCalculText = "Quarter(s) x €41.70";
+  calculTextEl.innerHTML = `${quarterlyCalculText}`;
+}
+
+// Checkout - Show Anniversary Offer
+function showAnnivPrice() {
+  const annualProd = "Anniversary forfait";
   prodTypeEl.innerText = `${annualProd}`;
   prodTypeInputEl.value = `${annualProd}`;
 
-  const annualCalculText = "Year(s) x €122.90";
+  const annualCalculText = "Year(s) x €142.80";
   calculTextEl.innerHTML = `${annualCalculText}`;
 }
 
 // Check if user clicked subscribe monthly or annual subscription
 function checkProductType() {
   // console.log(productType);
-  if (productType === "annual") {
+  if (productType === "anniversary") {
     durationInput.placeholder = "1";
-    prodTotalEl.innerText = "€122.90";
-    subTotalEl.innerText = "€122.90";
+    prodTotalEl.innerText = "€142.80";
+    subTotalEl.innerText = "€142.80";
     shippingEl.innerText = "€0.00";
-    totalEl.innerText = "€122.90";
-    showAnnualPrice();
+    totalEl.innerText = "€142.80";
+    showAnnivPrice();
+  } else if (productType === "experience") {
+    durationInput.placeholder = "1";
+    prodTotalEl.innerText = "€41.70";
+    subTotalEl.innerText = "€41.70";
+    shippingEl.innerText = "€0.00";
+    totalEl.innerText = "€41.70";
+    showExperiencePrice();
   } else {
-    durationInput.placeholder = "3";
-    prodTotalEl.innerText = "€35.70";
-    subTotalEl.innerText = "€35.70";
+    durationInput.placeholder = "1";
+    prodTotalEl.innerText = "€15.90";
+    subTotalEl.innerText = "€15.90";
     shippingEl.innerText = "€0.00";
-    totalEl.innerText = "€35.70";
-    showMonthlyPrice();
+    totalEl.innerText = "€15.90";
+    showDiscoveryPrice();
   }
 }
 
@@ -59,7 +76,14 @@ function calculateTotal(e) {
   //   : sessionStorage.setItem("duration", durationInput);
 
   let price;
-  productType === "annual" ? (price = 122.9) : (price = 11.9);
+  // productType === "anniversary" ? (price = 122.9) : (price = 11.9);
+  if (productType === "anniversary") {
+    price = 142.8;
+  } else if (productType === "experience") {
+    price = 41.7;
+  } else {
+    price = 15.9;
+  }
 
   const shipping = 0;
 

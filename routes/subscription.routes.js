@@ -17,6 +17,10 @@ subscriptionRouter.get("/checkout", (req, res) => {
   res.render("subscription/checkout");
 });
 
+subscriptionRouter.post("/checkout", (req, res) => {
+  res.render("subscription/checkout");
+});
+
 // To do: Render order confirmation page.
 //// If order fails, render an error message on top.
 //// If order succeeds, create an order, and redirect to account order history.
@@ -26,8 +30,10 @@ subscriptionRouter.post("/confirmation", isLoggedIn, (req, res) => {
   const { duration, productType } = req.body;
 
   let revisedDuration;
-  if (productType == "Annual subscription - 122.90 €") {
-    revisedDuration = duration * 12;
+  if (productType == "Anniversary forfait") {
+    revisedDuration = duration * 13;
+  } else if (productType == "Experience forfait") {
+    revisedDuration = duration * 3;
   } else {
     revisedDuration = duration;
   }

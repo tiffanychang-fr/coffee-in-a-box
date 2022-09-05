@@ -28,36 +28,41 @@
     </nav>
 
     {{! Main Section }}
-    <form action="/box/create" method="POST" enctype="multipart/form-data">
-      <label>
-        Title
-        <input type="text" name="title" />
-      </label>
-      <label>
-        Description
-        <input type="text" name="description" />
-      </label>
-      <label>
-        Release Month
-        <input type="text" name="releaseMonth" />
-      </label>
-      <label>
-        Release Year
-        <input type="text" name="releaseYear" />
-      </label>
-      <label>
-        Image URL
-        <input type="file" name="imageUrl" />
-      </label>
+    <div class="container">
 
-      <button type="submit">Create Box</button>
-    </form>
+      <form action="/box/create" method="POST" enctype="multipart/form-data">
+        <label>
+          Title
+          <input type="text" name="title" />
+        </label>
+        <label>
+          Description
+          <input type="text" name="description" />
+        </label>
+        <label>
+          Release Month
+          <input type="text" name="releaseMonth" />
+        </label>
+        <label>
+          Release Year
+          <input type="text" name="releaseYear" />
+        </label>
+        <label>
+          Image URL
+          <input type="file" name="imageUrl" />
+        </label>
 
-    <br />
-    <a href="/box">🔙Go Back</a>
+        <button type="submit">Create Box</button>
+      </form>
 
-    {{#if errorMessage}}
-      {{errorMessage}}
-    {{/if}}
+      <br />
+      <a href="/box">🔙Go Back</a>
+
+      {{#if errorMessage}}
+        {{errorMessage}}
+      {{/if}}
+
+    </div>
+    <footer>&copy; Coffee In A Box | 2022</footer>
   </body>
 </html>

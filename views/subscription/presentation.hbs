@@ -4,6 +4,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Subscribe | Coffee In A Box</title>
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.2/examples/pricing/"
+    />
+    <link rel="stylesheet" href="stylesheets/pricing.css" />
   </head>
   <body>
 
@@ -44,37 +49,97 @@
     </nav>
 
     {{! Main Section}}
-    <h1>Subscribe to Coffee In A Box ❤</h1>
 
     <div class="container">
-      <div class="row justify-content-around">
-        <div class="col-md-6 mt-5">
-          <div class="card">
-            <img src="/images/pricing.jpg" />
-            <div class="card-body">
-              <h2 class="card-title">11.90€/month</h2>
-              <div class="card-text">Delivery included</div>
-              <a class="monthly-price" href="/subscription/checkout">👉CLICK TO
-                SUBSCRIBE</a>
+
+      <header>
+        <div class="pricing-header p-3 pb-md-4 mt-5 mb-3 mx-auto text-center">
+          <h1 class="pricing-title fw-normal">Subscribe to Coffee In A Box</h1>
+          <p class="fs-5 text-muted">Every month, you will find a box of coffee
+            bean directly in your mailbox.</p>
+        </div>
+      </header>
+
+      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+
+        <div class="col">
+          <form action="/subscription/checkout" method="post">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Discovery</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">€15.90<small
+                    class="text-muted fw-light"
+                  >/box</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>1 box discovery</li>
+                  <li>delivery included</li>
+                </ul>
+                <button
+                  type="submit"
+                  class="discovery w-100 btn btn-lg btn-outline-primary"
+                >Purchase
+                </button>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
 
-        <div class="col-md-6 mt-5">
-          <div class="card">
-            <img src="/images/pricing.jpg" />
-            <div class="card-body">
-              <h2 class="card-title">122.90€/year</h2>
-              <div class="card-text">Payment in one time</div>
-              <a class="annual-price" href="/subscription/checkout">👉CLICK TO
-                SUBSCRIBE</a>
+        <div class="col">
+          <form action="/subscription/checkout" method="post">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+              <div
+                class="card-header py-3 text-light bg-primary border-primary"
+              >
+                <h4 class="my-0 fw-normal">Experience</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">€13.90<small
+                    class="text-muted fw-light"
+                  >/box</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>€41.70 in one time</li>
+                  <li>3 boxes experience</li>
+                  <li>best gift for friends</li>
+                </ul>
+                <button
+                  type="submit"
+                  class="experience w-100 btn btn-lg text-light btn-primary"
+                >Purchase</button>
+              </div>
             </div>
-          </div>
+          </form>
+        </div>
+
+        <div class="col">
+          <form action="/subscription/checkout" method="post">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Anniversary</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">11.90€<small
+                    class="text-muted fw-light"
+                  >/box</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>€142.80 in one time</li>
+                  <li>12 boxes + 1 free box</li>
+                  <li>get surprised for a whole year</li>
+                </ul>
+                <button
+                  type="submit"
+                  class="anniversary w-100 btn btn-lg btn-outline-primary"
+                >Purchase</button>
+              </div>
+            </div>
+          </form>
         </div>
 
       </div>
     </div>
 
+    <footer>&copy; Coffee In A Box | 2022</footer>
     <script src="/js/subscribe.js"></script>
     {{! <script src="/js/cart.js"></script> }}
   </body>

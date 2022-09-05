@@ -41,11 +41,15 @@
     </nav>
 
     {{! Main Section }}
-    <h1>Dear {{user.username}}, Welcome to your account!✨</h1>
-    <a href="/account/information">📌My Information</a>
-    <br />
-    <a href="/account/subscription">🎁My Order History</a>
-    <br />
-    <a href="/auth/logout">👋Logout</a>
+    <div class="container">
+      <h1>Dear {{user.username}}, Welcome to your account!✨</h1>
+      <a href="/account/information">📌My Information</a>
+      <br />
+      <a href="/account/subscription">🎁My Order History</a>
+      <br />
+      <a href="/auth/logout">👋Logout</a>
+    </div>
+
+    <footer>&copy; Coffee In A Box | 2022</footer>
   </body>
 </html>

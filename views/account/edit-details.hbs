@@ -41,31 +41,33 @@
     </nav>
 
     {{! Main Section }}
-    <h1>Modify My Information</h1>
+    <div class="container">
+      <h1>Modify My Information</h1>
 
-    <form method="post" action="/account/edit-details">
-      <label>Username
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          value="{{user.username}}"
-        />
-      </label>
-      <br />
+      <form method="post" action="/account/edit-details">
+        <label>Username
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            value="{{user.username}}"
+          />
+        </label>
+        <br />
 
-      <label>Email
-        <input
-          type="text"
-          name="email"
-          placeholder="Email"
-          value="{{user.email}}"
-        />
-      </label>
-      <br />
+        <label>Email
+          <input
+            type="text"
+            name="email"
+            placeholder="Email"
+            value="{{user.email}}"
+          />
+        </label>
+        <br />
 
-      <button type="submit">Save</button>
-
-    </form>
+        <button type="submit">Save</button>
+      </form>
+    </div>
+    <footer>&copy; Coffee In A Box | 2022</footer>
   </body>
 </html>

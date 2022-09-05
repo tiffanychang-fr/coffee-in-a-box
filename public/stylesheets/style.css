@@ -1,6 +1,29 @@
+/* CSS VARIABLES */
+:root {
+  --primary-bg-color: white;
+}
+
+/* RESET CSS */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* GLOBAL STYLES*/
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
+
+footer {
+  background-color: var(--primary-bg-color);
+  text-align: center;
+  padding: 1rem 0;
 }
 
 a {
@@ -8,5 +31,9 @@ a {
 }
 
 h1 {
-  color: 15px;
+  font-size: 15px;
+}
+
+.navbar {
+  padding: 0;
 }

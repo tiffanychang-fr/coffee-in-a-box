@@ -3,13 +3,18 @@ function setProductType() {
 }
 
 // Pricing
-const monthlyButton = document.querySelector(".monthly-price");
-const annualButton = document.querySelector(".annual-price");
-monthlyButton.addEventListener("click", (e) => {
-  productType = "monthly";
+const discoveryButton = document.querySelector(".discovery");
+const experienceButton = document.querySelector(".experience");
+const anniversaryButton = document.querySelector(".anniversary");
+discoveryButton.addEventListener("click", (e) => {
+  productType = "discovery";
   setProductType();
 });
-annualButton.addEventListener("click", (e) => {
-  productType = "annual";
+experienceButton.addEventListener("click", (e) => {
+  productType = "experience";
+  setProductType();
+});
+anniversaryButton.addEventListener("click", (e) => {
+  productType = "anniversary";
   setProductType();
 });
