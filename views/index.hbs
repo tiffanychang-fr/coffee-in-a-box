@@ -4,7 +4,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <!-- CSS stylesheet -->
     <link rel="stylesheet" href="stylesheets/home.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
 
@@ -46,25 +57,52 @@
 
     {{! Main Section }}
     <div class="container">
-      <br />
-      <div
-        class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light home-banner"
-      >
-        <div class="col-md-7 p-lg-7 mx-auto my-5">
-          <h1 class="fw-normal">Become a Coffee In A Box Subscriber</h1>
-          <p class="lead fw-normal">Accessible way to discover a variety of
-            coffee by a selection of our expert.</p>
-          <a
-            class="btn btn-outline-secondary"
-            href="/subscription/presentation"
-          >CHECK OUR PLAN</a>
+      <section class="colored-section" id="home-banner">
+        <br />
+        <div
+          class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-light home-banner"
+        >
+          <div class="col-md-7 p-lg-7 mx-auto my-5">
+            <h1 class="fw-normal">Become a Coffee In A Box Subscriber</h1>
+            <p class="lead fw-normal">Accessible way to discover a variety of
+              coffee by a selection of our expert.</p>
+            <a
+              class="btn btn-outline-secondary"
+              href="/subscription/presentation"
+            >CHECK OUR PLAN</a>
+          </div>
         </div>
-      </div>
-      {{!-- {{#if session.userId}}
-    <a href="/account/dashboard">🎈My Account</a>
-    </br>
-    <a href="#">💌The Subscriptions</a>
-   {{/if}} --}}
+      </section>
+
+      <!-- Features -->
+
+      <section class="white-section" id="features">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="feature-box col-lg-3">
+              <h2 class="emoji">🐱‍👤</h2>
+              <h3 class="feature-title">Staff Picks</h3>
+              <p>Our exports select beans along with a little guide card found in your box.</p>
+            </div>
+            <div class="feature-box col-lg-3">
+              <h2 class="emoji">🌱</h2>
+              <h3 class="feature-title">Sustainable</h3>
+              <p>We support small roasters with ethical and sustainable practices.</p>
+            </div>
+            <div class="feature-box col-lg-3">
+              <h2 class="emoji delivery">🚚</h1>
+              <h3 class="feature-title">Deliver to Home</h3>
+              <p>Delivery is included, you just need to pick it up in your mailbox.</p>
+            </div>
+            <div class="feature-box col-lg-3">
+              <h2 class="emoji">🎧</h2>
+              <h3 class="feature-title">A Team listens</h3>
+              <p>Our customer team is here for you. We appreciate for your precious feedback.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
     <footer>&copy; Coffee In A Box | 2022</footer>
   </body>
