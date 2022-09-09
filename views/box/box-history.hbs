@@ -47,7 +47,7 @@
     <div class="container">
       {{#if session.isAdmin}}
       <br/>
-      <a href="/box/create">➕CREATE A NEW BOX</a>
+      <a href="/box/create" class="create-box-admin">➕ CREATE A NEW BOX</a>
       {{/if}}
 
       <div class="row justify-content-around">
@@ -56,13 +56,13 @@
             <div class="card">
               <img src="{{imageUrl}}" />
               <div class="card-body">
-                <h5 class="card-title">{{title}}</h5>
-                <div class="card-text">{{releaseMonth}}-{{releaseYear}}</div>
-                <a href="/box/{{_id}}">MORE DETAILS</a>
+                <h5 class="card-title box-title">{{title}}</h5>
+                <div class="card-text release-month">{{releaseMonth}}-{{releaseYear}}</div>
+                <a href="/box/{{_id}}" class="box-details">MORE DETAILS</a>
                 {{#if ../session.isAdmin}}
                   <br />
-                  <a href="/box/update/{{_id}}">EDIT</a>
-                  <a href="/box/delete/{{_id}}">| DELETE</a>
+                  <a href="/box/update/{{_id}}" class="box-details">EDIT</a>
+                  <a href="/box/delete/{{_id}}" class="box-details">| DELETE</a>
                 {{else}}
                 {{/if}}
               </div>

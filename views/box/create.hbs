@@ -36,33 +36,113 @@
     {{! Main Section }}
     <div class="container">
 
-      <form action="/box/create" method="POST" enctype="multipart/form-data">
-        <label>
-          Title
-          <input type="text" name="title" />
-        </label>
-        <label>
-          Description
-          <input type="text" name="description" />
-        </label>
-        <label>
-          Release Month
-          <input type="text" name="releaseMonth" />
-        </label>
-        <label>
-          Release Year
-          <input type="text" name="releaseYear" />
-        </label>
-        <label>
-          Image URL
-          <input type="file" name="imageUrl" />
-        </label>
+      <form
+        class="create-box-form"
+        action="/box/create"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3">Create Box Form</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="boxTitle" class="form-label">Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="BoxTitle"
+                  placeholder="Box Title"
+                  name="title"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Box title is required.
+                </div>
+              </div>
 
-        <button type="submit">Create Box</button>
+              <div class="col-12">
+                <label
+                  for="boxDescription"
+                  class="form-label"
+                >Description</label>
+                <div class="input-group has-validation">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="boxDescription"
+                    placeholder="Description"
+                    name="description"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Box description is required.
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="country" class="form-label">Release Month</label>
+                <select
+                  class="form-select"
+                  id="releaseMonth"
+                  name="releaseMonth"
+                  required
+                >
+                  <option value="">Choose...</option>
+                  <option>Jan</option>
+                  <option>Feb</option>
+                  <option>Mar</option>
+                  <option>Apr</option>
+                  <option>May</option>
+                  <option>Jun</option>
+                  <option>Jul</option>
+                  <option>Aug</option>
+                  <option>Sep</option>
+                  <option>Oct</option>
+                  <option>Nov</option>
+                  <option>Dec</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid release month.
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="state" class="form-label">Release Year</label>
+                <input
+                  class="form-control"
+                  id="releaseYear"
+                  name="releaseYear"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please select a valid release year.
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="imageUrl" class="form-label">Upload Image</label>
+                <input
+                  class="form-control"
+                  type="file"
+                  name="imageUrl"
+                  id="imageUrl"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Image required.
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <button class="w-100 btn btn-primary btn-lg" type="submit">CREATE
+              BOX</button>
+          </form>
+        </div>
       </form>
-
-      <br />
-      <a href="/box">🔙Go Back</a>
 
       {{#if errorMessage}}
         {{errorMessage}}

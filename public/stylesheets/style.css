@@ -144,3 +144,44 @@ h1 {
   color: #93b5c6;
   font-weight: bold;
 }
+
+/* Create Box */
+
+.create-box-form,
+.edit-box-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.create-box-admin {
+  font-size: 1.2rem;
+  color: #cdc7be;
+  font-weight: bold;
+}
+
+.create-box-admin:hover {
+  color: #93b5c6;
+  text-decoration: none;
+}
+
+.box-title {
+  color: #c37b89;
+  font-weight: bold;
+}
+
+.release-month {
+  color: #c9ccd5;
+  font-weight: bold;
+}
+
+.box-details {
+  color: #cdc7be;
+  font-weight: bold;
+}
+
+.box-details:hover {
+  color: #93b5c6;
+  font-weight: bold;
+  text-decoration: none;
+}
