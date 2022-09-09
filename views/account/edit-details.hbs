@@ -10,9 +10,12 @@
     {{! Navbar }}
     <nav class="navbar navbar-expand-lg px-5 py-3 mx-auto text-dark">
       <div class="container-fluid">
-        <div class="container-fluid">
         <div class="brand">
-          <a class="navbar-brand pr-5 mr-5" href="/"><img class="brand-logo" src="/images/coffee-logo.png" alt="brand-logo">Coffee In A Box</a>
+          <a class="navbar-brand pr-5 mr-5" href="/"><img
+              class="brand-logo"
+              src="/images/coffee-logo.png"
+              alt="brand-logo"
+            />Coffee In A Box</a>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mb-2 mb-lg-0 pl-5 ml-5">
@@ -44,13 +47,15 @@
     </nav>
 
     {{! Main Section }}
-    <div class="container">
+    <div class="container edit-info">
       <br />
-      <h1>Modify My Information</h1>
+      <h1 class="edit-info-title">Modify My Information</h1>
+      <br />
 
       <form method="post" action="/account/edit-details">
-        <label>Username
+        <label class="edit-detail">USERNAME:
           <input
+            class="edit-detail"
             type="text"
             name="username"
             placeholder="Username"
@@ -59,8 +64,9 @@
         </label>
         <br />
 
-        <label>Email
+        <label class="edit-detail">EMAIL:
           <input
+            class="edit-detail"
             type="text"
             name="email"
             placeholder="Email"
@@ -69,7 +75,7 @@
         </label>
         <br />
 
-        <button type="submit">Save</button>
+        <button type="submit" class="edit-detail">SAVE</button>
       </form>
     </div>
     <footer>&copy; Coffee In A Box | 2022</footer>

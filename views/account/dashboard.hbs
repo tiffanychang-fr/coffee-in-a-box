@@ -10,9 +10,12 @@
     {{! Navbar }}
     <nav class="navbar navbar-expand-lg px-5 py-3 mx-auto text-dark">
       <div class="container-fluid">
-        <div class="container-fluid">
         <div class="brand">
-          <a class="navbar-brand pr-5 mr-5" href="/"><img class="brand-logo" src="/images/coffee-logo.png" alt="brand-logo">Coffee In A Box</a>
+          <a class="navbar-brand pr-5 mr-5" href="/"><img
+              class="brand-logo"
+              src="/images/coffee-logo.png"
+              alt="brand-logo"
+            />Coffee In A Box</a>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mb-2 mb-lg-0 pl-5 ml-5">
@@ -44,15 +47,16 @@
     </nav>
 
     {{! Main Section }}
-    <div class="container">
+    <div class="container dashboard">
       <br />
-      <h1>Dear {{user.username}}, Welcome to your account!✨</h1>
+      <h1 class="account-greet">Dear
+        {{user.username}}, Welcome to your account!✨</h1>
       <br />
-      <a href="/account/information">📌My Information</a>
+      <a class="account-item" href="/account/information">📌 My Information</a>
       <br />
-      <a href="/account/subscription">🎁My Order History</a>
+      <a class="account-item" href="/account/subscription">🎁 My Order History</a>
       <br />
-      <a href="/auth/logout">👋Logout</a>
+      <a class="account-item" href="/auth/logout">👋 Logout</a>
     </div>
 
     <footer>&copy; Coffee In A Box | 2022</footer>
