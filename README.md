@@ -1,7 +1,7 @@
 # coffee-in-a-box ✨
 Coffee In A Box is an online shop which sells monthly coffee bean subscription box made with mongoDB, express.js, node.js, and styling with Bootstrap.
 The idea is simple: each month our staffs select coffee beans from a different country and roast, so you can discover the different flavors from around the world. 
-Check it from the link 👉 [e-shop demo](https://coffee-in-a-box.herokuapp.com/)
+Check it from the link 👉 [e-shop demo](https://fair-pear-sweatpants.cyclic.app/)
 
 ### 🔧 Technical Features
 - `Authentication and Sessions`: applying `bcrypt`, `express-session` and `connect-mongo` npm packages.  
